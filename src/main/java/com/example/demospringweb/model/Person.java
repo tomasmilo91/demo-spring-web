@@ -1,9 +1,6 @@
 package com.example.demospringweb.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Person {
@@ -15,18 +12,50 @@ public class Person {
     private Integer age;
     private String telephone;
     private String email;
+    private int salary;
+
+    @Enumerated
+    private PersonType personType;
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public PersonType getPersonType() {
+        return personType;
+    }
+
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
+    }
 
     public Person(String name, Integer age, String telephone, String email) {
         this.name = name;
         this.age = age;
         this.telephone = telephone;
         this.email = email;
+        this.personType=PersonType.KAN;
+    }
+
+    public Person(String name, Integer age, String telephone, String email, int salary) {
+        this.name = name;
+        this.age = age;
+        this.telephone = telephone;
+        this.email = email;
+        this.salary=salary;
+        this.personType=PersonType.EMP;
     }
 
     public Person() {
     }
 
-
+    public Person(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;

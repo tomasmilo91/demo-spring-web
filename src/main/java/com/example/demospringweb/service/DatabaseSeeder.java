@@ -13,6 +13,7 @@ import java.util.List;
 public class DatabaseSeeder implements CommandLineRunner {
     private PersonRepository personRepository;
 
+
     @Autowired
     public DatabaseSeeder (PersonRepository personRepository){
         this.personRepository=personRepository;
@@ -22,9 +23,11 @@ public class DatabaseSeeder implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         List<Person> persons= new ArrayList<>();
 
-        persons.add(new Person("Tomas Novy",33, "0904567888","email@email.cz"));
-        persons.add(new Person("Tomas Novy2",34, "0904567889","email1@email.cz"));
-        //persons.add(new Person("Tomas Novy3",35, "0904567880","email2@email.cz"));
+        persons.add(new Person("Kandidate First",39, "0904567888","emailfirst@email.cz"));
+        persons.add(new Person("Employee First",39, "0904567888","emailemployeefirst@email.cz", 3000));
+        persons.add(new Person("Kandidate Second",31, "0907767888","emailsecond@email.cz"));
+        persons.add(new Person("Employee First",39, "0909867888","emailemployeesecond@email.cz", 1600));
+
 
         personRepository.saveAll(persons);
 
